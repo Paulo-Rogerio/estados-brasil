@@ -1,8 +1,7 @@
 ActiveRecord::Base.establish_connection
 ActiveRecord::Base.connection.tables.each do |table|
   next if table == 'schema_migrations'
-  next if table == 'cities'
- 
+
   # Trunca tabela - PostgreSQL
   ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
 
