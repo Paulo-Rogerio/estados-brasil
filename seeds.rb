@@ -28,18 +28,18 @@ module BRPopulate
   end
 
   def self.populate
-    estados.each do |uf|
-      uf_obj = Estado.new(:sigla => uf["acronym"], :nome => uf["name"])
-      uf_obj.save
+    estados.each do |sigla_uf|
+      sigla_uf_obj = Estado.new(:sigla => sigla_uf["uf"], :nome => sigla_uf["cidades"])   
+      sigla_uf_obj.save
       
-      uf["cities"].each do |city|
+      sigla_uf["cidades"].each do |city|
         
         c = Cidade.new
         c.nome = city
-        c.estado = uf_obj
-        c.capital = capital?(city, uf)
+        c.estado = sigla_uf_obj
+        c.capital = capital?(city, sigla_uf)
          
-        #abort c.estado.inspect
+        #abort c.capital.inspect
         #abort c.nome.inspect
         c.save
       end
