@@ -1,3 +1,13 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Trunca os dados de todas as tabelas
+
 ActiveRecord::Base.establish_connection
 ActiveRecord::Base.connection.tables.each do |table|
   next if table == 'schema_migrations'
@@ -14,7 +24,7 @@ end
 
 
 require 'net/http'
-require 'net/https' # for ruby 1.8.7
+require 'net/https'
 require 'json'
 
 module BRPopulate
@@ -23,24 +33,25 @@ module BRPopulate
     JSON.parse http.get('/Paulo-Rogerio/estados-brasil/master/estados-brasil.json').body
   end
 
-  def self.capital?(cidade, estado)
-    cidade["name"] == estado["capital"]
-  end
-
   def self.populate
-    estados.each do |sigla_uf|
-      sigla_uf_obj = Estado.new(:sigla => sigla_uf["uf"], :nome => sigla_uf["cidades"])   
-      sigla_uf_obj.save
-      
-      sigla_uf["cidades"].each do |city|
-        
+    estados.each do |state|
+      state_obj = Estado.new(:uf => state["uf"], :estado => state["estado"])
+      state_obj.save
+
+
+      state["cidades"].each do |city|
+
         c = Cidade.new
-        c.nome = city
-        c.estado = sigla_uf_obj
-        c.capital = capital?(city, sigla_uf)
-         
-        #abort c.capital.inspect
-        #abort c.nome.inspect
+        c.cidade = city
+
+	# Checa se a cidade e uma capital
+	
+        if city == state["capital"]
+               c.capital = "true"
+        else
+               c.capital = "false"
+        end
+
         c.save
       end
     end
@@ -48,3 +59,4 @@ module BRPopulate
 end
 
 BRPopulate.populate
+
