@@ -1,6 +1,6 @@
 // http://concla.ibge.gov.br/classificacoes/por-tema/codigo-de-areas/codigo-de-areas
 [{ 
-  "estado": "Acre", 
+  "nome": "Acre", 
   "uf": "AC", 
   "time_zone": "America/Rio_Branco",
   "capital": "Rio Branco",
