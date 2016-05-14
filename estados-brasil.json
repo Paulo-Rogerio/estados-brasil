@@ -1,8 +1,8 @@
 // http://concla.ibge.gov.br/classificacoes/por-tema/codigo-de-areas/codigo-de-areas
 [{ 
-  "name": "Acre", 
-  "acronym": "AC", 
+  "nome": "Acre", 
+  "uf": "AC", 
   "time_zone": "America/Rio_Branco",
   "capital": "Acrelândia",
-  "cities": ["Acrelândia","Assis Brasil","Brasiléia","Bujari","Capixaba","Cruzeiro do Sul","Epitaciolândia","Feijó","Jordão","Mâncio Lima","Manoel Urbano","Marechal Thaumaturgo","Plácido de Castro","Porto Acre","Porto Walter","Rio Branco","Rodrigues Alves","Santa Rosa do Purus","Sena Madureira","Senador Guiomard","Tarauacá","Xapuri"]
+  "cidades": ["Acrelândia","Assis Brasil","Brasiléia","Bujari","Capixaba","Cruzeiro do Sul","Epitaciolândia","Feijó","Jordão","Mâncio Lima","Manoel Urbano","Marechal Thaumaturgo","Plácido de Castro","Porto Acre","Porto Walter","Rio Branco","Rodrigues Alves","Santa Rosa do Purus","Sena Madureira","Senador Guiomard","Tarauacá","Xapuri"]
 }]
