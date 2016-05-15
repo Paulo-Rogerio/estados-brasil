@@ -8,7 +8,7 @@
 
 <h3> Criar o seed </h3>
 
-<code>
+~~~
 module BRPopulate
   def self.estados
     http = Net::HTTP.new('raw.githubusercontent.com', 443); http.use_ssl = true
@@ -42,7 +42,7 @@ module BRPopulate
 end
 
 BRPopulate.populate
-</code>
+~~~
 
 <h3>Populando os Registros</h3>
 
