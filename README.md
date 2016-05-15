@@ -2,9 +2,18 @@
 
 <h3> Criar os scaffold </h3>
 
-<code>rails g scaffold cidades cidade capital:boolean estado_id:integer</code>
 
-<code>rails g scaffold estados estado uf</code>
+~~~
+ _________________                    ____________________
+|     Estados     |                  |       Cidades      |
+|-----------------| 1 ------------ * |--------------------|
+|  estado:string  |                  |  cidade:string     |
+|  uf:string      |                  |  capital:boolean   |
+ ----------------                    |  estado_id:integer |
+                                      --------------------
+rails g scaffold cidades cidade capital:boolean estado_id:integer
+rails g scaffold estados estado uf
+~~~
 
 <h3> Criar o seed </h3>
 
