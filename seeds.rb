@@ -43,6 +43,7 @@ module BRPopulate
 
         c = Cidade.new
         c.cidade = city
+        c.estado_id = state_obj["id"]
 
 	# Checa se a cidade e uma capital
 	
